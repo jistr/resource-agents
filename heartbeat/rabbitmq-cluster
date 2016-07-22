@@ -216,6 +216,11 @@ rmq_start_first()
 	rc=$?
 
 	if [ $rc -eq 0 ]; then
+		$RMQ_CTL start_app
+		rc=$?
+	fi
+
+	if [ $rc -eq 0 ]; then
 		rc=$OCF_SUCCESS
 		ocf_log info "cluster bootstrapped"
 
